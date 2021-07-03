@@ -3,6 +3,8 @@ import "../css/style.css";
 import RestGame from "./components/RestGame";
 import Modal from "./components/Modal";
 import HighScore from "./components/HighScore";
+import tableData from "../resources/data/tableData.json"
+import tableStructure from "../resources/data/tableStructure.json";
 
 export default function App() {
     const [clicks, setClicks] = useState(0);
@@ -13,7 +15,7 @@ export default function App() {
     const [openModal, setOpenModal] = useState(false);
     const [modalText, setModalText] = useState("");
     const [validationErrors, setValidationErrors] = useState(false);
-    const [database, setDataInDatabase] = useState([]);
+    const [database, setDataInDatabase] = useState(tableData);
 
     const plusMinus = () => {
         if (isOutOfClicks) return;
@@ -33,10 +35,7 @@ export default function App() {
             return
         }
 
-        database.push(JSON.stringify({name, score, clicks}))
-        setDataInDatabase(database);
-
-        localStorage.setItem("database", `${database}`);
+        database.push({name, score, clicks, average: (score/clicks).toFixed(2)})
 
         setModalText(`Pretending save name, score and clicks to a database.`);
         setOpenModal(true);
@@ -45,9 +44,10 @@ export default function App() {
             setScore(0);
             setNextNumber(0);
             setIsOutOfClicks(false);
-            setOpenModal(false);
             setName("");
-        }, 4000);
+            setDataInDatabase( [...database]);
+            setOpenModal(false);
+        }, 3500);
     };
 
     const updatePlayerName = (event) => {
@@ -119,9 +119,9 @@ export default function App() {
                         least 3 letters.</p> : null}
             </div>
 
-            {openModal ? <Modal text={modalText}/> : null}
+            <HighScore tableData={database} tableStructure={tableStructure} />
 
-            <HighScore />
+            {openModal ? <Modal text={modalText}/> : null}
         </>
     );
 }

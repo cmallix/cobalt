@@ -1,0 +1,18 @@
+[
+  {
+    "Header": "Name",
+    "accessor": "name"
+  },
+  {
+    "Header": "Score",
+    "accessor": "score"
+  },
+  {
+    "Header": "Clicks",
+    "accessor": "clicks"
+  },
+  {
+    "Header": "Average score per click",
+    "accessor": "average"
+  }
+]
