@@ -1,57 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
-
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-  font-family: 'Yantramanav', sans-serif;
-  color: #FCFBF9;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-  background-size: cover;
-  background: linear-gradient(210deg, #0DB285 6.51%, #4185EB 97.4%);
-  min-height: 100vh;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
+@import url('reset.css');
 
 h1 {
   padding: 10px 0 0 0;
@@ -235,7 +183,7 @@ input:focus{
 }
 
 .errorMsg {
-  padding: 15px 0 5px 0;
+  padding: 5px 0;
   color: #CE1212;
   font-weight: 900;
   font-size: 0.9rem;
@@ -273,4 +221,52 @@ input:focus{
     width: 100%;
   }
 
+}
+
+.highScore {
+  display: flex;
+  justify-content: center;
+}
+
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 98%;
+  max-width: 850px;
+  margin-bottom: 40px;
+}
+
+table td, table th {
+  border: 1px solid #0047AB;
+  padding: 8px;
+}
+
+table tr td {
+  width: 25%;
+}
+
+table tr:nth-child(even) {
+  background-color: #248bd2;
+}
+
+table tr:hover {
+  /*background-color: #ddd;*/
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0047AB;
+  border: 1px solid #000;
+  color: white;
+  font-weight: 900;
+  position: relative;
+}
+
+.sortIc {
+  position: absolute;
+  right: 5px;
+  bottom: 8px;
 }

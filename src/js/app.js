@@ -2,6 +2,7 @@ import {useState} from "react";
 import "../css/style.css";
 import RestGame from "./components/RestGame";
 import Modal from "./components/Modal";
+import HighScore from "./components/HighScore";
 
 export default function App() {
     const [clicks, setClicks] = useState(0);
@@ -119,6 +120,8 @@ export default function App() {
             </div>
 
             {openModal ? <Modal text={modalText}/> : null}
+
+            <HighScore />
         </>
     );
 }
