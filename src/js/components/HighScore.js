@@ -11,7 +11,7 @@ export default function HighScore(props) {
 
     const columns = useMemo(
         () => tableStructure,
-        []
+        [tableStructure]
     )
 
     const {
