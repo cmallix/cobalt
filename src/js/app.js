@@ -5,6 +5,7 @@ import Modal from "./components/Modal";
 import HighScore from "./components/HighScore";
 import tableData from "../resources/data/tableData.json"
 import tableStructure from "../resources/data/tableStructure.json";
+import {getRank, keepTopTen, sortByScore} from "./utility/helpers";
 
 export default function App() {
     const [clicks, setClicks] = useState(0);
@@ -15,7 +16,8 @@ export default function App() {
     const [openModal, setOpenModal] = useState(false);
     const [modalText, setModalText] = useState("");
     const [validationErrors, setValidationErrors] = useState(false);
-    const [database, setDataInDatabase] = useState(tableData);
+    const [database, setDataInDatabase] = useState(keepTopTen(sortByScore(tableData)));
+    const [userFeedback, setUserFeedback]  = useState(null);
 
     const plusMinus = () => {
         if (isOutOfClicks) return;
@@ -35,19 +37,26 @@ export default function App() {
             return
         }
 
-        database.push({name, score, clicks, average: (score/clicks).toFixed(2)})
+        if(score < database[9].score) {
+            setUserFeedback(`Sorry your score was not high enough to make it in the top 10.`);
+            return;
+        }
 
-        setModalText(`Pretending save name, score and clicks to a database.`);
-        setOpenModal(true);
-        setTimeout(() => {
-            setClicks(0);
-            setScore(0);
-            setNextNumber(0);
-            setIsOutOfClicks(false);
-            setName("");
-            setDataInDatabase( [...database]);
-            setOpenModal(false);
-        }, 3500);
+        let average = score/clicks;
+        average = isNaN(average) ? 0 : average.toFixed(2);
+        database.push({name, score, clicks, average})
+
+        const newTopTen = keepTopTen(sortByScore([...database]));
+        const rank = getRank(newTopTen, name, score);
+
+        setClicks(0);
+        setScore(0);
+        setNextNumber(0);
+        setIsOutOfClicks(false);
+        setName("");
+        setUserFeedback(null);
+        setDataInDatabase(newTopTen);
+        setUserFeedback(`Nice, you placed ${rank}`);
     };
 
     const updatePlayerName = (event) => {
@@ -68,7 +77,7 @@ export default function App() {
             setNextNumber(0);
             setIsOutOfClicks(false);
             setOpenModal(false);
-        }, 2500);
+        }, 1500);
     }
 
     return (
@@ -117,6 +126,9 @@ export default function App() {
                 {validationErrors ?
                     <p className='errorMsg'>You can't submit a score without a valid name.<br/>Your name must be at
                         least 3 letters.</p> : null}
+
+                {userFeedback ? <p className='infoMsg'>{userFeedback}</p> : null}
+
             </div>
 
             <HighScore tableData={database} tableStructure={tableStructure} />

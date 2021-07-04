@@ -190,6 +190,14 @@ input:focus{
   text-align: center;
 }
 
+.infoMsg {
+  padding: 5px 0;
+  color: #003262;
+  font-weight: 900;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 
 .modal {
   position: absolute;
