@@ -3,60 +3,60 @@
     "name": "Chris",
     "score": 123,
     "clicks": 5,
-    "average": 24.60
+    "average": 24.6
   },
   {
     "name": "Mathew",
-    "score": 424,
+    "score": 65,
     "clicks": 6,
-    "average": 70.67
+    "average": 10.83
   },
   {
     "name": "John",
-    "score": 234,
+    "score": 23,
     "clicks": 10,
-    "average": 23.40
+    "average": 2.3
   },
   {
     "name": "Alex",
-    "score": 390,
+    "score": 90,
     "clicks": 9,
-    "average": 43.33
+    "average": 10
   },
   {
     "name": "Michelle",
-    "score": 134,
+    "score": 12,
     "clicks": 4,
-    "average": 33.50
+    "average": 3
   },
   {
     "name": "Claire",
-    "score": 242,
+    "score": 45,
     "clicks": 2,
-    "average": 121.00
+    "average": 22.5
   },
   {
     "name": "Helen",
-    "score": 101,
+    "score": 18,
     "clicks": 8,
-    "average": 12.63
+    "average": 2.25
   },
   {
     "name": "Mimi",
-    "score": 89,
+    "score": 5,
     "clicks": 3,
-    "average": 29.67
+    "average": 1.67
   },
   {
     "name": "Phillip",
-    "score": 78,
+    "score": 90,
     "clicks": 5,
-    "average": 15.60
+    "average": 18
   },
   {
     "name": "Peter",
     "score": 31,
     "clicks": 2,
-    "average": 15.50
+    "average": 15.5
   }
 ]

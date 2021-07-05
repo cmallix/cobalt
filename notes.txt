@@ -1,0 +1,30 @@
+
+# Tests.
+
+I've haded tests for the utility functions I created.
+I think it's important to test pure functions that take a number of arguments and return a value.
+Generally any thing that effects state should be tested.
+
+You can added test for DOM elements such checking an input text filed has been cleared after submitting a form,
+or that you can not submit the form with a empty string ect, however I did not added those tests for this demo.
+
+Animation, layout and responsiveness would need to bested by QA.
+It's worth noting that regression tests are a good idea for user facing features.
+
+# General.
+
+I did not create a dummy POST, GET requests.
+I save the changed state in memory and I'm loading the high scores from file.
+
+I would request the API end points to be,
+
+- GET /top-ten should return a SORTED array of the top ten scores.
+I would prefer not to sort the data on the front end this is better handled in SQL.
+
+- GET /scores should return a UNSORTED array of all the scored submitted.
+This end point is not needed for the demo app but it would be nice to have.
+
+- POST /score ; would post a JSON object of this shape { name: string, score: number, clicks: number, average: number }
+
+
+
