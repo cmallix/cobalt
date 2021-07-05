@@ -65,6 +65,10 @@ export default function App() {
         if (event.target.value.trim().length >= 3) {
             setValidationErrors(false);
         }
+
+        if(userFeedback !== null){
+            setUserFeedback(null);
+        }
     };
 
     const restGame = async () => {
