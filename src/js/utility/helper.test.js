@@ -23,7 +23,7 @@ test("Big array is reduced to first 10 items", ()=>{
     expect(arrayOfTen.length).toBe(10);
 });
 
-test("Will return index of ranked (named|scored) object or undefined.", ()=>{
+test("Will return index of ranked (named|scored) object or null.", ()=>{
 
     const highScores = [
         {name: 'a', score: 100},
